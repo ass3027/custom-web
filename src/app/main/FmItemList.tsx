@@ -22,7 +22,7 @@ const parsingItem = (item: HTMLElement): Item => {
     return {
         title: item.querySelector("img")?.attributes.alt,
         image: item.querySelector("img")?.attributes["data-original"],
-        url: item.querySelector("a")?.attributes.href,
+        url: item.querySelector("a")?.attributes.href || '',
         voted: ToNumber(item.querySelector(".count")?.textContent),
         comments: ToNumber(item.querySelector(".comment_count")?.textContent?.slice(1, -1)),
     }
