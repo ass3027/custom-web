@@ -1,0 +1,22 @@
+.item-wrapper{
+    width: 50%;
+    margin: 20px
+}
+
+.item-li{
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    margin: 20px;
+}
+.item-img {
+    width: 15%;
+    height: 15%;
+    margin-right: 20px;
+}
+
+.item-title {
+    width: 90%;
+}
