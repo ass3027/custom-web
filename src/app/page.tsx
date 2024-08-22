@@ -111,3 +111,7 @@ export default function Home() {
     </main>
   );
 }
+
+export function ToNumber(text: string | undefined) : number{
+  return text ? Number(text) : 0;
+}
