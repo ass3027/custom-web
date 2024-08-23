@@ -32,7 +32,7 @@ export default function Header() {
         <div className="p-10 flex justify-between border-b border-slate-100">
             <Sheet>
                 <SheetTrigger><Button>Open</Button></SheetTrigger>
-                <SheetContent>
+                <SheetContent side="left">
                     <SheetHeader>
                         <SheetTitle>Who is the best soccer player in the world?</SheetTitle>
                         <SheetDescription>
