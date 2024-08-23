@@ -1,16 +1,16 @@
 'use client';
-import {Key, Suspense} from "react";
+import {Key} from "react";
 import styled from "./ItemList.module.css"
 
-export default async function ItemList(props : {name: string,items:Item[]})  {
+export default function ItemList(props : {items:Item[],imageUrl:string})  {
 
     const linkTo = (url: string) => window.location.href = 'https://www.fmkorea.com/' + url
 
 
     return (
-        <Suspense fallback={<div>Loading ...</div>}>
+        <>
             <div className={styled.itemWrapper}>
-                <h2>{props.name}</h2>
+                <img className={styled.icon} src={props.imageUrl} alt={"image"}/>
                 <ul>
                     {props.items.map((item: Item, i: Key | null | undefined) =>
                         <li className={styled.itemLi} key={i}>
@@ -25,14 +25,14 @@ export default async function ItemList(props : {name: string,items:Item[]})  {
                     )}
                 </ul>
             </div>
-        </Suspense>
+        </>
     )
 }
 
 export interface Item {
     title: string | undefined;
     image: string | undefined;
-    url : string;
+    url: string;
     voted: number;
     comments: number;
 }

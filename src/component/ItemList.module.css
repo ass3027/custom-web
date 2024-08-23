@@ -1,6 +1,7 @@
 .item-wrapper{
-    width: 50%;
-    margin: 20px
+    width: 30%;
+    margin: 20px;
+    text-align: center;
 }
 
 .item-li{
@@ -18,5 +19,10 @@
 }
 
 .item-title {
-    width: 90%;
+    width: 50%;
+}
+
+.icon {
+    width: 70%;
+    height: 5%;
 }

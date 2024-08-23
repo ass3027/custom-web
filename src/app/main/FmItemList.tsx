@@ -1,11 +1,15 @@
 import {HTMLElement, parse} from "node-html-parser";
 import ItemList, {Item} from "@/component/ItemList";
 import {ToNumber} from "@/app/page";
-
+import {Suspense} from "react";
 
 export default async function FmItemList() {
+    const imageUrl = "https://image.fmkorea.com/logos/fmkorealogo_h1.png"
+
     return (
-        <ItemList name="fm" items={await getFmItem()}/>
+        <Suspense fallback={<div>Loading ...</div>}>
+            <ItemList items={await getFmItem()} imageUrl={imageUrl}/>
+        </Suspense>
     )
 }
 const getFmItem = async () => {
@@ -22,7 +26,7 @@ const parsingItem = (item: HTMLElement): Item => {
     return {
         title: item.querySelector("img")?.attributes.alt,
         image: item.querySelector("img")?.attributes["data-original"],
-        url: item.querySelector("a")?.attributes.href,
+        url: item.querySelector("a")?.attributes.href || '',
         voted: ToNumber(item.querySelector(".count")?.textContent),
         comments: ToNumber(item.querySelector(".comment_count")?.textContent?.slice(1, -1)),
     }
