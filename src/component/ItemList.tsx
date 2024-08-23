@@ -4,8 +4,7 @@ import styled from "./ItemList.module.css"
 
 export default function ItemList(props : {items:Item[],imageUrl:string})  {
 
-    const linkTo = (url: string) => window.location.href = 'https://www.fmkorea.com/' + url
-
+    const linkTo = (url: string) => url ? window.location.href = url : alert('유효하지 않은 링크 입니다')
 
     return (
         <>
@@ -17,7 +16,9 @@ export default function ItemList(props : {items:Item[],imageUrl:string})  {
                             <div className={styled.item} onClick={() => linkTo(item.url)}>
                                 <img className={styled.item_img} src={item.image} alt={item.title}/>
                                 <div className={styled.item_title}>
-                                    <p>{item.title}[{item.voted}]</p><p className="item-voted">{item.voted}</p>
+                                    <p>{item.title}[{item.voted}]</p>
+                                    <p className="item-voted">조회수 {item.voted}</p>
+                                    <p>{item.price}</p>
                                 </div>
                             </div>
 
@@ -32,7 +33,8 @@ export default function ItemList(props : {items:Item[],imageUrl:string})  {
 export interface Item {
     title: string | undefined;
     image: string | undefined;
+    price: string;
     url: string;
-    voted: number;
-    comments: number;
+    voted: string;
+    comments: string;
 }
