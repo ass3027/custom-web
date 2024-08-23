@@ -21,13 +21,15 @@ const getFmItem = async () => {
         .map(item => parsingItem(item));
 }
 
+const baseUrl = 'https://www.fmkorea.com/'
+
 const parsingItem = (item: HTMLElement): Item => {
     // @ts-ignore
     return {
         title: item.querySelector("img")?.attributes.alt,
         image: item.querySelector("img")?.attributes["data-original"],
-        url: item.querySelector("a")?.attributes.href || '',
-        voted: ToNumber(item.querySelector(".count")?.textContent),
-        comments: ToNumber(item.querySelector(".comment_count")?.textContent?.slice(1, -1)),
+        url: baseUrl + item.querySelector("a")?.attributes.href || '',
+        voted: item.querySelector(".count")?.textContent || '0',
+        comments: item.querySelector(".comment_count")?.textContent?.slice(1, -1) || '0',
     }
 }

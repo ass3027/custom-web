@@ -4,8 +4,7 @@ import styled from "./ItemList.module.css"
 
 export default function ItemList(props : {items:Item[],imageUrl:string})  {
 
-    const linkTo = (url: string) => window.location.href = 'https://www.fmkorea.com/' + url
-
+    const linkTo = (url: string) => url ? window.location.href = url : alert('유효하지 않은 링크 입니다')
 
     return (
         <>
@@ -33,6 +32,6 @@ export interface Item {
     title: string | undefined;
     image: string | undefined;
     url: string;
-    voted: number;
-    comments: number;
+    voted: string;
+    comments: string;
 }
