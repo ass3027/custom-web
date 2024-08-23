@@ -1,11 +1,15 @@
 import {HTMLElement, parse} from "node-html-parser";
 import ItemList, {Item} from "@/component/ItemList";
 import {ToNumber} from "@/app/page";
-
+import {Suspense} from "react";
 
 export default async function FmItemList() {
+    const imageUrl = "https://image.fmkorea.com/logos/fmkorealogo_h1.png"
+
     return (
-        <ItemList name="fm" items={await getFmItem()}/>
+        <Suspense fallback={<div>Loading ...</div>}>
+            <ItemList items={await getFmItem()} imageUrl={imageUrl}/>
+        </Suspense>
     )
 }
 const getFmItem = async () => {
