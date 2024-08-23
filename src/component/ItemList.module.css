@@ -1,10 +1,9 @@
-.item-wrapper{
+.item_wrapper{
     width: 30%;
     margin: 20px;
-    text-align: center;
 }
 
-.item-li{
+.item_li{
     width: 100%;
 }
 
@@ -12,17 +11,17 @@
     display: flex;
     margin: 20px;
 }
-.item-img {
+.item_img {
     width: 15%;
     height: 15%;
     margin-right: 20px;
 }
 
-.item-title {
+.item_title {
     width: 50%;
 }
 
 .icon {
     width: 70%;
-    height: 5%;
+    margin: 0 auto;
 }
