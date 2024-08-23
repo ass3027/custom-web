@@ -1,6 +1,5 @@
 import {HTMLElement, parse} from "node-html-parser";
 import ItemList, {Item} from "@/component/ItemList";
-import {ToNumber} from "@/app/page";
 import {Suspense} from "react";
 
 export default async function FmItemList() {
@@ -21,13 +20,16 @@ const getFmItem = async () => {
         .map(item => parsingItem(item));
 }
 
+const baseUrl = 'https://www.fmkorea.com/'
+
 const parsingItem = (item: HTMLElement): Item => {
     // @ts-ignore
     return {
         title: item.querySelector("img")?.attributes.alt,
         image: item.querySelector("img")?.attributes["data-original"],
-        url: item.querySelector("a")?.attributes.href || '',
-        voted: ToNumber(item.querySelector(".count")?.textContent),
-        comments: ToNumber(item.querySelector(".comment_count")?.textContent?.slice(1, -1)),
+        price: item.querySelector("div.hotdeal_info")?.childNodes[3].childNodes[1]?.textContent || '?',
+        url: baseUrl + item.querySelector("a")?.attributes.href || '',
+        voted: item.querySelector(".count")?.textContent || '0',
+        comments: item.querySelector(".comment_count")?.textContent?.slice(1, -1) || '0',
     }
 }
