@@ -9,14 +9,14 @@ export default function ItemList(props : {items:Item[],imageUrl:string})  {
 
     return (
         <>
-            <div className={styled.itemWrapper}>
+            <div className={styled.item_wrapper}>
                 <img className={styled.icon} src={props.imageUrl} alt={"image"}/>
                 <ul>
                     {props.items.map((item: Item, i: Key | null | undefined) =>
-                        <li className={styled.itemLi} key={i}>
+                        <li className={styled.item_li} key={i}>
                             <div className={styled.item} onClick={() => linkTo(item.url)}>
-                                <img className={styled.itemImg} src={item.image} alt={item.title}/>
-                                <div className={styled.itemTitle}>
+                                <img className={styled.item_img} src={item.image} alt={item.title}/>
+                                <div className={styled.item_title}>
                                     <p>{item.title}[{item.voted}]</p><p className="item-voted">{item.voted}</p>
                                 </div>
                             </div>
