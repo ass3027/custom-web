@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay";
 import * as React from 'react'
+import { Input } from "@/components/ui/input";
 
 
 export default function Board() {
@@ -32,13 +33,18 @@ export default function Board() {
 
     return (
         <div className="w-screen flex justify-center items-center" style={{height: '80vh'}}>
-            <div className="border rounded w-4/5 h-4/5 shadow-2xl">
-                <h1>BOARD</h1>
-                <div>
-                    <h2>hello</h2>
+            <div className="border rounded w-4/5 h-4/5 shadow-2xl flex flex-col items-center">
+                <div className="flex justify-between items-center min-h-14" style={{width: '95%'}}>
+                    <div>
+                        <p className="text-3xl">BOARD</p>
+                    </div>
+
+                    <div>
+                        <Input type="text" placeholder="Search..." />
+                    </div>
                 </div>
                 <Separator />
-                <div className="border-b-blue-600 border">
+                <div className="w-full ">
                     <Carousel
                         plugins={[plugin.current]}
                         className="w-40"
