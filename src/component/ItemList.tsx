@@ -16,7 +16,9 @@ export default function ItemList(props : {items:Item[],imageUrl:string})  {
                             <div className={styled.item} onClick={() => linkTo(item.url)}>
                                 <img className={styled.item_img} src={item.image} alt={item.title}/>
                                 <div className={styled.item_title}>
-                                    <p>{item.title}[{item.voted}]</p><p className="item-voted">{item.voted}</p>
+                                    <p>{item.title}[{item.voted}]</p>
+                                    <p className="item-voted">조회수 {item.voted}</p>
+                                    <p>{item.price}</p>
                                 </div>
                             </div>
 
@@ -31,6 +33,7 @@ export default function ItemList(props : {items:Item[],imageUrl:string})  {
 export interface Item {
     title: string | undefined;
     image: string | undefined;
+    price: string;
     url: string;
     voted: string;
     comments: string;

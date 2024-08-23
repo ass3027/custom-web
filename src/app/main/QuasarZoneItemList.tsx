@@ -1,6 +1,5 @@
 import {HTMLElement, parse} from "node-html-parser";
 import ItemList, {Item} from "@/component/ItemList";
-import {ToNumber} from "@/app/page";
 import {Suspense} from "react";
 
 export default async function QuasarZoneItemList() {
@@ -27,6 +26,7 @@ const parsingItem = (item: HTMLElement): Item => {
     return {
         title: item.querySelector("span.ellipsis-with-reply-cnt")?.textContent,
         image: item.querySelector("img")?.attributes.src,
+        price: item.querySelector("span.text-orange")?.textContent || '?',
         url: baseUrl + item.querySelector("a")?.attributes.href || '',
         voted: item.querySelector("span.ctn-count")?.textContent || '0',
         comments: item.querySelector("span.count")?.textContent || '0',

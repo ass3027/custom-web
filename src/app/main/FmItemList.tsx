@@ -1,6 +1,5 @@
 import {HTMLElement, parse} from "node-html-parser";
 import ItemList, {Item} from "@/component/ItemList";
-import {ToNumber} from "@/app/page";
 import {Suspense} from "react";
 
 export default async function FmItemList() {
@@ -28,6 +27,7 @@ const parsingItem = (item: HTMLElement): Item => {
     return {
         title: item.querySelector("img")?.attributes.alt,
         image: item.querySelector("img")?.attributes["data-original"],
+        price: item.querySelector("div.hotdeal_info")?.childNodes[3].childNodes[1]?.textContent || '?',
         url: baseUrl + item.querySelector("a")?.attributes.href || '',
         voted: item.querySelector(".count")?.textContent || '0',
         comments: item.querySelector(".comment_count")?.textContent?.slice(1, -1) || '0',
