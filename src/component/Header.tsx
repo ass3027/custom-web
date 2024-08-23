@@ -1,20 +1,21 @@
 import Link from 'next/link';
+import { Button } from '@/components/ui/button'
 
 export default function Header() {
     return (
         <div className="p-10 border-b border-slate-100">
-            <nav className="flex gap-x-4 text-indigo-500 font-bold">
+            <nav className="flex justify-center gap-x-4 text-indigo-500 font-bold">
                 <Link href="/">
-                    HOME
+                    <Button>HOME</Button>
                 </Link>
                 <Link href="/main">
-                    MAIN
+                    <Button>MAIN</Button>
                 </Link>
                 <Link href="/main/board">
-                    BOARD
+                    <Button>BOARD</Button>
                 </Link>
                 <Link href="/main/detail">
-                    DETAIL
+                    <Button>DETAIL</Button>
                 </Link>
             </nav>
         </div>
