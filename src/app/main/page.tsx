@@ -1,10 +1,10 @@
 import FmItemList from "@/app/main/FmItemList";
 import QuasarZoneItemList from "@/app/main/QuasarZoneItemList";
 
-export default function Page() {
+export default async function Page() {
 
     return (
-        <div style={{display:"flex"}}>
+        <div className="flex justify-around items-center" style={{ height: '80vh' }}>
             <FmItemList/>
             <QuasarZoneItemList/>
         </div>
